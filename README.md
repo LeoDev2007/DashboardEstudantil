@@ -47,6 +47,7 @@ preview: npm run preview
 
 📁 Estrutura do Projeto
 
+```
 eslint.config.js
 index.html
 package.json
@@ -113,6 +114,7 @@ src/
         Header.module.css
         Lesson.module.css
         Profile.module.css
+```
 
 🛠️ Configuração para Desenvolvimento
 
