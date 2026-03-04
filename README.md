@@ -47,73 +47,72 @@ preview: npm run preview
 
 📁 Estrutura do Projeto
 
-.
-├── eslint.config.js
-├── index.html
-├── package.json
-├── public
-│   └── vite.svg
-├── src
-│   ├── App.jsx
-│   ├── Articles
-│   │   ├── biologia.md
-│   │   ├── filosofia.md
-│   │   ├── fisica.md
-│   │   ├── geografia.md
-│   │   ├── historia.md
-│   │   ├── ingles.md
-│   │   ├── matematica.md
-│   │   ├── portugues.md
-│   │   ├── quimica.md
-│   │   ├── redacao.md
-│   │   └── sociologia.md
-│   ├── Contexts
-│   │   ├── AuthContext.jsx
-│   │   └── ScheduleContext.jsx
-│   ├── RootLayout.jsx
-│   ├── assets
-│   │   └── react.svg
-│   ├── components
-│   │   ├── DashboardStatics.jsx
-│   │   ├── DeleteDialog.jsx
-│   │   ├── Drawner.jsx
-│   │   ├── Header.jsx
-│   │   ├── LoginForm.jsx
-│   │   ├── RegisterForm.jsx
-│   │   ├── ScreenLoading.jsx
-│   │   ├── ToggleTheme.jsx
-│   │   └── ui
-│   │       ├── color-mode.jsx
-│   │       ├── password-input.jsx
-│   │       ├── provider.jsx
-│   │       ├── toaster.jsx
-│   │       └── tooltip.jsx
-│   ├── data
-│   │   └── DataSubjects.jsx
-│   ├── index.css
-│   ├── main.jsx
-│   ├── pages
-│   │   ├── AppLayout.jsx
-│   │   ├── AuthPage.jsx
-│   │   ├── CreateScheduleForm.jsx
-│   │   ├── Dashboard.jsx
-│   │   ├── Lesson.jsx
-│   │   └── Profile.jsx
-│   ├── routes
-│   │   ├── RouteGuard.jsx
-│   │   └── router.jsx
-│   └── styles
-│       ├── Auth.module.css
-│       ├── AuthPage.module.css
-│       ├── CreateScheduleForm.module.css
-│       ├── Dashboard.module.css
-│       ├── DashboardStatics.module.css
-│       ├── DeleteDialog.module.css
-│       ├── Drawer.module.css
-│       ├── Header.module.css
-│       ├── Lesson.module.css
-│       └── Profile.module.css
-└── vite.config.js
+eslint.config.js
+index.html
+package.json
+vite.config.js
+public/
+    vite.svg
+src/
+    App.jsx
+    Articles/
+        biologia.md
+        filosofia.md
+        fisica.md
+        geografia.md
+        historia.md
+        ingles.md
+        matematica.md
+        portugues.md
+        quimica.md
+        redacao.md
+        sociologia.md
+    Contexts/
+        AuthContext.jsx
+        ScheduleContext.jsx
+    RootLayout.jsx
+    assets/
+        react.svg
+    components/
+        DashboardStatics.jsx
+        DeleteDialog.jsx
+        Drawner.jsx
+        Header.jsx
+        LoginForm.jsx
+        RegisterForm.jsx
+        ScreenLoading.jsx
+        ToggleTheme.jsx
+        ui/
+            color-mode.jsx
+            password-input.jsx
+            provider.jsx
+            toaster.jsx
+            tooltip.jsx
+    data/
+        DataSubjects.jsx
+    index.css
+    main.jsx
+    pages/
+        AppLayout.jsx
+        AuthPage.jsx
+        CreateScheduleForm.jsx
+        Dashboard.jsx
+        Lesson.jsx
+        Profile.jsx
+    routes/
+        RouteGuard.jsx
+        router.jsx
+    styles/
+        Auth.module.css
+        AuthPage.module.css
+        CreateScheduleForm.module.css
+        Dashboard.module.css
+        DashboardStatics.module.css
+        DeleteDialog.module.css
+        Drawer.module.css
+        Header.module.css
+        Lesson.module.css
+        Profile.module.css
 
 🛠️ Configuração para Desenvolvimento
 
