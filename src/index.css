@@ -1,0 +1,62 @@
+
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+
+  --background1: #060749;
+  --background2: #fff;
+  --background3: #060749cc;
+  --text-color: #000;
+  --text-color2: #fff;
+  --text-color3: #333;
+  --text-color4: #555;
+  --text-color5: #1417d9;
+  --error: #ff0000;
+  --logout-color: #ff0000;
+  --backgroundBtn: #1417d9;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+
+
+html{
+  font-size: 16px;
+}
+
+body [role="dialog"] {
+  background-color: var(--background2) !important;
+  color: var(--text-color) !important;
+}
+
+body {
+  background-color: var(--background2);
+  color: var(--text-color);
+}
+
+[data-scope="input-addon"] button,
+[class*="chakra"] button[aria-label],
+fieldset button {
+  background-color: transparent !important;
+  color: var(--text-color) !important;
+}
+
+[data-theme="dark"]  {
+  --background1: #0a0a0a;
+  --background2: #1a1a2e;
+  --background3: #16213ecc;
+  --text-color: #e0e0e0;
+  --text-color2: #ffffff;
+  --text-color3: #b0b0b0;
+  --text-color4: #888888;
+  --text-color5: #5a5fff;
+  --error: #ff4444;
+  --logout-color: #ff4444;
+  --backgroundBtn: #3a3fd4;
+  --shadow: rgba(0, 0, 0, 0.4);
+}

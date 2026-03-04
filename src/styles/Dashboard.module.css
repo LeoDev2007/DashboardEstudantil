@@ -1,0 +1,189 @@
+.dashboardHeader {
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.dashboardTitle h2 {
+  font-size: 1.375rem;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 600;
+  color: var(--text-color);
+  background-color: transparent;
+}
+
+.dashboardSubtitle {
+  padding: 1.25rem 1.5rem;
+  border: 0.0625rem solid var(--shadow);
+  border-radius: 0.625rem;
+}
+
+.dashboardMiddle {
+  padding: 0.625rem 1.5rem;
+}
+
+.dashboardContainer {
+  padding: 0.625rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+.dashboardContainer h3 {
+  font-family: "Krub", sans-serif;
+  margin-bottom: 0.625rem;
+  color: var(--text-color);
+}
+
+.dashboardCard {
+  width: 100%;
+  border: 0.0625rem solid var(--shadow);
+  padding: 0.625rem;
+  gap: 0.625rem;
+  filter: drop-shadow(-4px 6px 0 var(--shadow));
+  background-color: var(--background2);
+}
+
+.dashboardCard h3 {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.session {
+  padding: 0.625rem;
+  gap: 1.25rem;
+  border-radius: 0.625rem;
+}
+
+.session h4 {
+  font-family: "Kumbh Sans", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.session p {
+  font-family: "Krub", sans-serif;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.btn {
+  width: 100%;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.9375rem;
+  font-family: "Kumbh Sans", sans-serif;
+  font-weight: 600;
+  background-color: var(--background3);
+  color: var(--text-color2);
+  border: none;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  background-color: var(--backgroundBtn);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--background3); 
+}
+
+
+.progressContainer {
+  margin-bottom: 1rem;
+  padding: 0.625rem 1.5rem;
+}
+
+.progressBar {
+  padding: 0.125rem;
+  height: 1rem;
+  border-radius: 1rem;
+  width: 50%;
+}
+
+/* tablet */
+@media (min-width: 768px) {
+  .dashboardHeader {
+    padding: 1.25rem;
+  }
+
+  .dashboardTitle h2 {
+    font-size: 1.75rem;
+  }
+
+  .dashboardSubtitle {
+    padding: 1.5rem 2rem;
+  }
+
+  .dashboardContainer {
+    padding: 0.625rem 1.25rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  .dashboardCard {
+    width: 100%;
+    max-width: 78%;
+  }
+
+  .dashboardCard h3 {
+    font-size: 1.375rem;
+  }
+
+  .session h4 {
+    font-size: 1.125rem;
+  }
+
+  .session p {
+    font-size: 1.125rem;
+  }
+
+  .btn {
+    width: auto;
+    font-size: 0.9375rem;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  .dashboardHeader {
+    padding: 1.5625rem 1.25rem;
+  }
+
+  .dashboardTitle h2 {
+    font-size: 2rem;
+  }
+
+  .dashboardSubtitle {
+    padding: 1.875rem 2.5rem;
+  }
+
+  .dashboardCard {
+    max-width: 45%;
+  }
+
+  .dashboardCard h3 {
+    font-size: 1.5rem;
+  }
+
+  .session {
+    gap: 2.5rem;
+  }
+
+  .session h4 {
+    font-size: 1.25rem;
+  }
+
+  .session p {
+    font-size: 1.125rem;
+  }
+}

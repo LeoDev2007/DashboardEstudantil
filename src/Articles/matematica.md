@@ -1,0 +1,8 @@
+
+As funções do primeiro grau constituem um dos pilares da matemática por estabelecerem uma ponte direta entre linguagem algébrica e fenômenos observáveis. Elas descrevem relações lineares entre grandezas, permitindo compreender como uma variável se comporta em função de outra. Esse tipo de estrutura aparece em situações cotidianas como cálculo de tarifas, crescimento populacional aproximado, consumo proporcional e variação de preços.
+
+A expressão geral f(x) = ax + b organiza essa relação de forma clara. O coeficiente angular (a) determina a taxa de variação, isto é, o quanto a função cresce ou decresce a cada unidade adicionada em x. Já o coeficiente linear (b) indica o valor inicial da função, representando o ponto em que a reta intercepta o eixo vertical no plano cartesiano. A interpretação gráfica torna-se essencial, pois a inclinação da reta revela o comportamento da função de maneira visual e imediata.
+
+Ao analisar problemas contextualizados, a função linear passa a representar situações concretas: uma corrida por aplicativo possui taxa fixa somada a um valor por quilômetro; um plano de celular combina mensalidade base com custo adicional por consumo; um trabalhador recebe salário fixo acrescido de comissão. Em cada caso, a matemática organiza a realidade por meio de um modelo simples, porém poderoso.
+
+Compreender funções do primeiro grau significa dominar uma ferramenta de leitura do mundo. Mais do que manipular símbolos, trata-se de reconhecer padrões de variação e interpretar relações de dependência entre grandezas.

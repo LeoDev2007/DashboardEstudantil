@@ -1,0 +1,7 @@
+A produção textual dissertativo-argumentativa constitui uma das principais ferramentas de avaliação acadêmica e também um instrumento essencial de expressão intelectual. Escrever nesse formato exige organização lógica, clareza de ideias e domínio da argumentação.
+
+O texto dissertativo-argumentativo estrutura-se em três partes fundamentais: introdução, desenvolvimento e conclusão. Na introdução, apresenta-se o tema e delimita-se uma tese — uma posição clara que será defendida ao longo do texto. O desenvolvimento organiza argumentos consistentes, fundamentados em dados, exemplos históricos, referências teóricas ou observações sociais. Cada parágrafo deve apresentar uma ideia central bem definida, articulada por mecanismos de coesão textual.
+
+A conclusão retoma a tese à luz dos argumentos apresentados, oferecendo fechamento coerente. Em alguns contextos avaliativos, exige-se ainda a proposição de uma solução ou encaminhamento para o problema discutido, reforçando o caráter reflexivo do texto.
+
+Produzir uma redação eficaz significa organizar pensamento de forma estruturada, sustentar ideias com consistência e comunicar-se com precisão. A escrita torna-se, assim, um exercício de raciocínio lógico e consciência crítica.
