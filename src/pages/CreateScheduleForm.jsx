@@ -52,7 +52,11 @@ const CreateScheduleForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    console.log("Dados do formulário:", data);
+    
+    if (selectedDays.length === 0) {
+      alert("Selecione pelo menos um dia de estudo.");
+      return;
+    }
 
     createSchedule(
       dataSubjects,
@@ -139,7 +143,7 @@ const CreateScheduleForm = () => {
             {DAYS.map((day) => {
               const isSelected = selectedDays?.includes(day) ?? false;
               const isDisabled = limitReached && !isSelected;
-
+              
               return (
                 <Field.Label
                   key={day}

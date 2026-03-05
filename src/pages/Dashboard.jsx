@@ -117,7 +117,7 @@ export const Dashboard = () => {
           </div>
 
           <div className={styles.dashboardContainer}>
-            {remainingSessions === null || remainingSessions.length === 0 ? (
+            {!remainingSessions || remainingSessions.length === 0 ? (
               <p>Parabéns! Você concluiu todas as sessões de hoje.</p>
             ) : (
               <Card.Root className={styles.dashboardCard}>
