@@ -85,12 +85,12 @@ export function AuthProvider({ children }) {
 
 
 
-  function editUser({ name, email }) {
+  function editUser({ name, email, password }) {
     const users = JSON.parse(localStorage.getItem("users")) || [];
     
     const updatedUsers =  users.map(u => {
       if (u.id === user.id) {
-        return { ...u, name, email };
+        return { ...u, name, email, password: password || u.password };
       }
       return u;
     });
