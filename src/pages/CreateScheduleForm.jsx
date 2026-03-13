@@ -4,14 +4,15 @@ import stylesForm from "../styles/Auth.module.css";
 import { useForm } from "react-hook-form";
 import { useWatch } from "react-hook-form";
 import { useState } from "react";
-
 import { useSchedule } from "../Contexts/ScheduleContext";
-import {dataSubjects} from "../data/DataSubjects"
+import { dataSubjects } from "../data/DataSubjects";
 import { useNavigate } from "react-router-dom";
+import DialogWarning from "../components/DialogWarning";
 
 const CreateScheduleForm = () => {
   const { createSchedule } = useSchedule();
   const [selectedDays, setSelectedDays] = useState([]);
+  const [showWarning, setShowWarning] = useState(null);
 
   const DAYS = [
     "Domingo",
@@ -52,10 +53,13 @@ const CreateScheduleForm = () => {
   const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    
     if (selectedDays.length === 0) {
-      alert("Selecione pelo menos um dia de estudo.");
+      setShowWarning("Selecione pelo menos um dia de estudo.");
       return;
+    }
+
+    if (selectedDays.length < Number(data.days)) {
+      setShowWarning(`Selecione exatamente ${data.days} dias de estudo.`);
     }
 
     createSchedule(
@@ -81,6 +85,14 @@ const CreateScheduleForm = () => {
           para organizar um plano realista e compatível com seu tempo.
         </p>
       </div>
+
+      {showWarning && (
+        <DialogWarning
+          open={!!showWarning}
+          message={showWarning}
+          onClose={() => setShowWarning(null)}
+        />
+      )}
       <form className={styles.formSchedule} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Field.Root invalid={!!errors.days}>
@@ -103,7 +115,7 @@ const CreateScheduleForm = () => {
                     "O valor deve ser menor ou igual a 7 dias da semana!",
                 },
                 onChange: () => {
-                  setSelectedDays([]); 
+                  setSelectedDays([]);
                   setValue("selectedDays", []);
                 },
               })}
@@ -143,7 +155,7 @@ const CreateScheduleForm = () => {
             {DAYS.map((day) => {
               const isSelected = selectedDays?.includes(day) ?? false;
               const isDisabled = limitReached && !isSelected;
-              
+
               return (
                 <Field.Label
                   key={day}
