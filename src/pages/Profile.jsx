@@ -7,6 +7,8 @@ import { useForm } from "react-hook-form";
 import { useAuth } from "../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 import DeleteDialog from "../components/DeleteDialog";
+import DialogWarning from "../components/DialogWarning";
+import { useState } from "react";
 
 const Profile = () => {
   const { user, editUser } = useAuth();
@@ -25,6 +27,8 @@ const Profile = () => {
 
   const navigate = useNavigate();
 
+  const [showWarning, setShowWarning] = useState(false)
+
   const onSubmit = async (data) => {
     const { name, email } = data;
     await editUser({ 
@@ -32,8 +36,8 @@ const Profile = () => {
       email: data.email || user.email,
       password: data.password || undefined,
      });
-    alert("Perfil atualizado com sucesso!");
-    navigate("/app");
+    setShowWarning(true)
+    
   };
 
   return (
@@ -47,6 +51,7 @@ const Profile = () => {
       </div>
 
       <div>
+        {showWarning && <DialogWarning message='Perfil atualizado com sucesso!' open={showWarning} onClose={() => {setShowWarning(false); navigate("/app")}} />}
         <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
           <div>
             <Field.Root invalid={!!errors.name}>

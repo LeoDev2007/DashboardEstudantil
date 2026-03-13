@@ -1,8 +1,10 @@
 import React from "react";
+import { useState } from "react";
 import { Input, Field } from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
+import DialogWarning from "./DialogWarning";
 import styles from "../styles/Auth.module.css";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { useAuth } from "../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
@@ -15,6 +17,7 @@ const LoginForm = () => {
   } = useForm();
 
   const navigate = useNavigate()
+  const [showWarning, setShowWarning] = useState(false);
 
   const onSubmit = async (data) => {
     const {name, email, password} = data
@@ -24,12 +27,14 @@ const LoginForm = () => {
     if (res.ok){
       navigate('/app')
     }else{
-      alert('E-mail ou Senha incorretos')
+      setShowWarning(true)
     }
   };
 
   return (
+    <>
     <div>
+      {showWarning && <DialogWarning message='E-mail ou Senha Incorretos!' open={showWarning} onClose={() => setShowWarning(false)} />}
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Field.Root invalid={!!errors.email}>
@@ -75,6 +80,7 @@ const LoginForm = () => {
         </button>
       </form>
     </div>
+    </>
   );
 };
 

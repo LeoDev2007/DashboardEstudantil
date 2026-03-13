@@ -1,6 +1,6 @@
 import React from 'react'
 import { CloseButton, Dialog, Portal } from "@chakra-ui/react"
-import styles from '../styles/DeleteDialog.module.css'
+import styles from '../styles/Dialog.module.css'
 import { useAuth } from "../Contexts/AuthContext";
 import { useSchedule } from '../Contexts/ScheduleContext';
 import { useNavigate } from 'react-router-dom';
