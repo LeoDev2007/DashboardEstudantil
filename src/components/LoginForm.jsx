@@ -71,7 +71,7 @@ const LoginForm = () => {
               })}
             />
             <Field.ErrorText>{errors.password?.message}</Field.ErrorText>
-            <span>Esqueceu sua senha?</span>
+           
           </Field.Root>
         </div>
 
