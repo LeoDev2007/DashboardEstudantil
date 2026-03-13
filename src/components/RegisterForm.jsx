@@ -1,10 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import { Input, Field } from "@chakra-ui/react";
 import { PasswordInput } from "@/components/ui/password-input";
 import { useForm } from "react-hook-form";
 import styles from "../styles/Auth.module.css";
 import { useAuth } from "../Contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import DialogWarning from "./DialogWarning";
 
 const RegisterForm = () => {
   const { register: registerForm } = useAuth();
@@ -16,6 +18,7 @@ const RegisterForm = () => {
   } = useForm();
 
   const navigate = useNavigate();
+  const [showWarning, setShowWarning] = useState(false); 
 
   const onSubmit = async (data) => {
     const { name, email, password } = data;
@@ -25,13 +28,14 @@ const RegisterForm = () => {
     if (res.ok) {
       navigate("/app");
     }else{
-      alert('Usuário já existe')
+      setShowWarning(true)
     }
   };
 
   const watchPassword = watch("password");
   return (
     <div>
+      {showWarning && <DialogWarning message='Este usuário já existe!' open={showWarning} onClose={() => setShowWarning(false)} />}
       <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Field.Root invalid={!!errors.name}>
