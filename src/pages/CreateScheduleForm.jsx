@@ -60,6 +60,7 @@ const CreateScheduleForm = () => {
 
     if (selectedDays.length < Number(data.days)) {
       setShowWarning(`Selecione exatamente ${data.days} dias de estudo.`);
+      return;
     }
 
     createSchedule(

@@ -83,7 +83,6 @@ export function ScheduleProvider({ children }) {
       });
     }
 
-    console.log("Cronograma gerado:", plan);
     setSchedule(plan);
     localStorage.setItem("schedule", JSON.stringify(plan));
     localStorage.setItem("scheduleDate", new Date().toISOString());
