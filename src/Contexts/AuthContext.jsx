@@ -51,6 +51,15 @@ export function AuthProvider({ children }) {
       return { ok: false, message: "E-mail ou senha inválidos" };
     }
 
+    const previousUser = JSON.parse(localStorage.getItem("sessionUser"));
+    if (previousUser && previousUser.id !== found.id) {
+      localStorage.removeItem("schedule");
+      localStorage.removeItem("scheduleDate");
+      localStorage.removeItem("studyDays");
+      localStorage.removeItem("conclued");
+      localStorage.removeItem("statics");
+    }
+
     const sessionUser = {
       id: found.id,
       name: found.name,
