@@ -1,49 +1,47 @@
 import { createContext, useContext, useMemo, useState } from "react";
-
+import { useAuth } from "./AuthContext";
 
 const ScheduleContext = createContext(null);
 
 export function ScheduleProvider({ children }) {
+  const { user } = useAuth();
   const [schedule, setSchedule] = useState(() => {
-    const saved = localStorage.getItem("schedule");
+    const saved = localStorage.getItem(`schedule_${user.id}`);
     return saved ? JSON.parse(saved) : [];
   });
 
-   const [statics, setStatics] = useState(() => {
-     const saved = localStorage.getItem("statics");
-     return saved ? JSON.parse(saved) : { totalSessions: 0, totalMinutes: 0 };
+  const [statics, setStatics] = useState(() => {
+    const saved = localStorage.getItem(`statics_${user.id}`);
+    return saved ? JSON.parse(saved) : { totalSessions: 0, totalMinutes: 0 };
   });
 
-  function saveStatics(minutes){
-    // Essa função irá salvar as estatísticas de estudo, começando por número de aulas concluídas no total e tempo de estudo que já está pré-definido
-
+  function saveStatics(minutes) {
     const updated = {
       totalSessions: statics.totalSessions + 1,
       totalMinutes: statics.totalMinutes + minutes,
     };
 
     setStatics(updated);
-    localStorage.setItem("statics", JSON.stringify(updated));
+    localStorage.setItem(`statics_${user.id}`, JSON.stringify(updated));
   }
 
   const [conclued, setConclued] = useState(() => {
-    const saved = localStorage.getItem("conclued");
+    const saved = localStorage.getItem(`conclued_${user.id}`);
     if (!saved) return [];
 
     const today = new Date().toISOString().split("T")[0];
     const parsed = JSON.parse(saved);
 
-    return parsed.filter(s => s.date === today);
+    return parsed.filter((s) => s.date === today);
   });
 
   function concludeSession(sessionSubject, minutes) {
     const today = new Date().toISOString().split("T")[0];
     const updated = [...conclued, { subject: sessionSubject, date: today }];
     setConclued(updated);
-    localStorage.setItem("conclued", JSON.stringify(updated));
-    saveStatics(minutes)
+    localStorage.setItem(`conclued_${user.id}`, JSON.stringify(updated));
+    saveStatics(minutes);
   }
-
 
   function createSchedule(subjects, days, hoursPerDay, selectedDays) {
     const totalMinutesPerDay = hoursPerDay * 60;
@@ -84,22 +82,22 @@ export function ScheduleProvider({ children }) {
     }
 
     setSchedule(plan);
-    localStorage.setItem("schedule", JSON.stringify(plan));
-    localStorage.setItem("scheduleDate", new Date().toISOString());
-    localStorage.setItem("studyDays", JSON.stringify(selectedDays));
+    localStorage.setItem(`schedule_${user.id}`, JSON.stringify(plan));
+    localStorage.setItem(`scheduleDate_${user.id}`, new Date().toISOString());
+    localStorage.setItem(`studyDays_${user.id}`, JSON.stringify(selectedDays));
   }
 
-  //Função para deletar o cronograma, caso o usuário queira criar um novo ou apenas apagar o existente
+  
 
   function deleteSchedule() {
     setSchedule([]);
-    localStorage.removeItem("schedule");
-    localStorage.removeItem("scheduleDate");
-    localStorage.removeItem("studyDays");
+    localStorage.removeItem(`schedule_${user.id}`);
+    localStorage.removeItem(`scheduleDate_${user.id}`);
+    localStorage.removeItem(`studyDays_${user.id}`);
     setConclued([]);
-    localStorage.removeItem("conclued");
+    localStorage.removeItem(`conclued_${user.id}`);
     setStatics({ totalSessions: 0, totalMinutes: 0 });
-    localStorage.removeItem("statics");
+    localStorage.removeItem(`statics_${user.id}`);
   }
 
   const value = useMemo(
@@ -109,7 +107,7 @@ export function ScheduleProvider({ children }) {
       concludeSession,
       conclued,
       statics,
-      deleteSchedule
+      deleteSchedule,
     }),
     [schedule, conclued, statics],
   );

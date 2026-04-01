@@ -25,8 +25,8 @@ export const Dashboard = () => {
   const todayName = dayNames[new Date().getDay()];
 
   const todaySchedule = useMemo(() => {
-    const startDate = localStorage.getItem("scheduleDate");
-    const studyDays = JSON.parse(localStorage.getItem("studyDays") || "[]");
+    const startDate = localStorage.getItem(`scheduleDate_${user.id}`);
+    const studyDays = JSON.parse(localStorage.getItem(`studyDays_${user.id}`) || "[]");
     if (!startDate || schedule.length === 0) return null;
 
     if (!studyDays.includes(todayName)) {
