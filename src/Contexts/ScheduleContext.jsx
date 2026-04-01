@@ -5,12 +5,14 @@ const ScheduleContext = createContext(null);
 
 export function ScheduleProvider({ children }) {
   const { user } = useAuth();
+  if (!user) return [];
   const [schedule, setSchedule] = useState(() => {
     const saved = localStorage.getItem(`schedule_${user.id}`);
     return saved ? JSON.parse(saved) : [];
   });
 
   const [statics, setStatics] = useState(() => {
+    if (!user) return { totalSessions: 0, totalMinutes: 0 };
     const saved = localStorage.getItem(`statics_${user.id}`);
     return saved ? JSON.parse(saved) : { totalSessions: 0, totalMinutes: 0 };
   });
@@ -26,6 +28,7 @@ export function ScheduleProvider({ children }) {
   }
 
   const [conclued, setConclued] = useState(() => {
+     if (!user) return [];
     const saved = localStorage.getItem(`conclued_${user.id}`);
     if (!saved) return [];
 
