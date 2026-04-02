@@ -12,6 +12,8 @@ import DeleteDialog from "../components/DeleteDialog";
 export const Dashboard = () => {
   const [remainingDays, setRemainingDays] = useState(null);
   const { schedule, conclued } = useSchedule();
+  const { user } = useAuth();
+  const navigate = useNavigate();
 
   const dayNames = [
     "Domingo",
@@ -26,7 +28,9 @@ export const Dashboard = () => {
 
   const todaySchedule = useMemo(() => {
     const startDate = localStorage.getItem(`scheduleDate_${user.id}`);
-    const studyDays = JSON.parse(localStorage.getItem(`studyDays_${user.id}`) || "[]");
+    const studyDays = JSON.parse(
+      localStorage.getItem(`studyDays_${user.id}`) || "[]",
+    );
     if (!startDate || schedule.length === 0) return null;
 
     if (!studyDays.includes(todayName)) {
@@ -70,9 +74,6 @@ export const Dashboard = () => {
     (session) => !conclued.some((c) => c.subject === session.subject),
   );
 
-  const navigate = useNavigate();
-  const { user } = useAuth();
-
   const totalSessions = todaySchedule?.sessions.length || 0;
   const concluedToday = conclued.filter((c) =>
     todaySchedule?.sessions.some((s) => s.subject === c.subject),
@@ -105,6 +106,11 @@ export const Dashboard = () => {
             Criar Cronograma
           </button>
           <DashboardStatics />
+        </div>
+      ) : todaySchedule === null ? (
+        <div className={styles.dashboardMiddle}>
+          <p>Hoje não é um dia de estudo, aproveite para descansar!</p>
+          <DeleteDialog type="schedule" className={styles.btn} />
         </div>
       ) : (
         <>

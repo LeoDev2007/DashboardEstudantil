@@ -4,7 +4,7 @@ import styles from "../styles/DashboardStatics.module.css";
 
 const DashboardStatics = () => {
   const { statics, schedule } = useSchedule();
-  console.log(schedule);
+
 
   const hours = Math.floor(statics.totalMinutes / 60);
   const minutes = statics.totalMinutes % 60;
